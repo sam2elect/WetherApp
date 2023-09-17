@@ -3,7 +3,7 @@ const apikey = "417e5e47e007f7938b48ffa2581405b0";
 window.addEventListener("load", () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(({ coords: { longitude: lon, latitude: lat } }) => {
-      const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`;
       fetch(url)
         .then(res => res.json())
         .then(data => {
@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
 
 async function searchByCity() {
     const place = document.getElementById('input').value;
-    const urlsearch = `http://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apikey}`;
+    const urlsearch = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apikey}`;
   
     try {
       const res = await fetch(urlsearch);
@@ -37,7 +37,7 @@ async function searchByCity() {
   }
   
 function weatherReport(data) {
-  const urlcast = `http://api.openweathermap.org/data/2.5/forecast?q=${data.name}&appid=${apikey}`;
+  const urlcast = `https://api.openweathermap.org/data/2.5/forecast?q=${data.name}&appid=${apikey}`;
 
   fetch(urlcast)
     .then(res => res.json())
